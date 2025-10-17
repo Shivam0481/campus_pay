@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Campus Pay</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b57d0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">CP</div>
+        <h1>Campus Pay</h1>
+      </div>
+      <button id="logout-btn" class="secondary hidden">Sign out</button>
+    </div>
+    <p class="subtitle">Simple. Safe. Smart — list items, estimate prices, and chat with AI.</p>
+  </header>
+
+  <!-- Auth screen (shown first) -->
+  <section id="auth" class="auth">
+    <div class="auth-card">
+      <div class="a-tabs">
+        <button class="a-tab active" data-tab="signin">Sign in</button>
+        <button class="a-tab" data-tab="signup">Sign up</button>
+      </div>
+      <div id="auth-msg" class="auth-msg hidden"></div>
+
+      <div id="signin" class="a-body active">
+        <form id="signin-form">
+          <label>Email
+            <input id="signin-email" type="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}" title="Enter a valid email address">
+          </label>
+          <label>Password
+            <input id="signin-pass" type="password" required>
+          </label>
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+
+      <div id="signup" class="a-body">
+        <form id="signup-form">
+          <label>Name
+            <input id="signup-name" type="text" required>
+          </label>
+          <label>Username
+            <input id="signup-username" type="text" placeholder="your_handle" required>
+          </label>
+          <label>Registration No.
+            <input id="signup-regno" type="text" placeholder="RA123456" required>
+            <small class="help">Must start with RA</small>
+          </label>
+          <label>Email
+            <input id="signup-email" type="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}" title="Enter a valid email address">
+          </label>
+          <label>Password
+            <input id="signup-pass" type="password" required>
+          </label>
+          <button type="submit">Create account</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <main id="main" class="container hidden">
+    <section class="left-pane">
+      <h2>New Listing</h2>
+      <form id="listing-form">
+        <div class="grid">
+          <label>Category
+            <select id="category" required>
+              <option value="">Select...</option>
+              <option>sofa</option>
+              <option>sofa bed</option>
+              <option>chair</option>
+              <option>recliner</option>
+              <option>stool</option>
+              <option>bench</option>
+              <option>table</option>
+              <option>coffee table</option>
+              <option>dining table</option>
+              <option>bed</option>
+              <option>mattress</option>
+              <option>nightstand</option>
+              <option>desk</option>
+              <option>bookshelf</option>
+              <option>cupboard</option>
+              <option>wardrobe</option>
+              <option>cabinet</option>
+              <option>dresser</option>
+              <option>tv stand</option>
+              <option>lamp</option>
+              <option>mirror</option>
+              <option>rug</option>
+              <option>shoe rack</option>
+            </select>
+          </label>
+          <label>Condition
+            <select id="condition" required>
+              <option value="">Select...</option>
+              <option>New</option>
+              <option>Like New</option>
+              <option>Good</option>
+              <option>Fair</option>
+              <option>Poor</option>
+            </select>
+          </label>
+        </div>
+
+        <label>Title
+          <input id="title" type="text" placeholder="e.g., Leather sofa 3-seater" required>
+        </label>
+        <label>Seller phone
+          <input id="seller-phone" type="tel" inputmode="tel" pattern="[0-9+\-()\s]{7,}" placeholder="+1 555 123 4567" required>
+        </label>
+        <label>Description
+          <textarea id="description" rows="4" placeholder="Add details..."></textarea>
+        </label>
+
+        <div class="photo-row">
+          <label>Photo
+            <input id="photo" type="file" accept="image/*" capture="environment">
+          </label>
+          <button type="button" id="camera-btn" class="secondary">Use camera</button>
+        </div>
+        <div id="photo-preview" class="preview hidden"></div>
+
+        <div class="actions">
+          <button type="button" id="estimate-btn">Estimate price</button>
+          <button type="submit">List product</button>
+        </div>
+      </form>
+
+      <div id="estimate-output" class="panel"></div>
+      <div id="market-output" class="panel"></div>
+
+      <h2>Latest Listings</h2>
+      <div id="listings" class="cards"></div>
+    </section>
+
+    <section class="right-pane">
+      <div class="assistant-header">
+        <h2>Assistant</h2>
+        <div class="model-picker">
+          <label for="model-select">Model</label>
+          <select id="model-select">
+            <option value="llama3.1-8b">Llama 3.1 8B (fast)</option>
+            <option value="llama3.1-70b">Llama 3.1 70B (best)</option>
+          </select>
+        </div>
+      </div>
+      <div id="assistant" class="tab-body active">
+        <div id="chat-area" class="chat"></div>
+        <div class="chips" id="quick-chips">
+          <button class="chip">What is quantum computing?</button>
+          <button class="chip">Explain Newton's second law</button>
+          <button class="chip">Write a short poem about campus</button>
+          <button class="chip">How to center a div in CSS?</button>
+        </div>
+        <div class="chat-input">
+          <input id="chat-text" type="text" placeholder="Ask me anything...">
+          <button id="chat-send">Send</button>
+        </div>
+        <div id="chat-mode" class="mode"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Sample data powers local estimates. Set CEREBRAS_API_KEY to enable AI mode.</small>
+  </footer>
+
+  <!-- Camera modal -->
+  <div id="camera-modal" class="modal hidden">
+    <div class="modal-sheet">
+      <video id="camera-video" autoplay playsinline></video>
+      <div class="modal-actions">
+        <button id="camera-cancel" class="secondary" type="button">Cancel</button>
+        <button id="camera-capture" type="button">Capture</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buy modal -->
+  <div id="buy-modal" class="modal hidden">
+    <div class="modal-sheet">
+      <div class="panel">
+        <h3 id="buy-title" style="margin:0 0 8px 0">Contact seller</h3>
+        <div id="buy-phone"></div>
+      </div>
+      <div class="modal-actions">
+        <a id="buy-call" class="button-like" href="#" target="_blank">Call</a>
+        <a id="buy-wh" class="button-like" href="#" target="_blank">WhatsApp</a>
+        <button id="buy-close" class="secondary" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>

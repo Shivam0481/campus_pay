@@ -1,0 +1,24 @@
+# Build outputs
+/out/
+/bin/
+/build/
+/target/
+*.class
+*.jar
+*.log
+
+# IDE/editor
+/.idea/
+/.vscode/
+*.iml
+
+# Tools
+.gradle/
+.mvn/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# DB/files
+*.db

@@ -1,0 +1,39 @@
+category,condition,title,price,platform
+sofa,Good,"Used comfy sofa",200,OfferUp
+sofa,Fair,"Old sofa",80,Craigslist
+chair,Like New,"Office chair",120,eBay
+table,Good,"Dining table",250,Facebook
+sofa,Like New,"Sectional leather sofa",450,Amazon
+chair,Good,"Wooden chair",60,Craigslist
+table,New,"Coffee table",90,Amazon
+sofa,Good,"Leather sofa",350,eBay
+bed,Fair,"Queen bed frame",150,OfferUp
+desk,Good,"Study desk",110,Facebook
+sofa,Poor,"Damaged sofa with scratches",40,Craigslist
+chair,New,"Gaming chair",180,Amazon
+table,Like New,"Solid wood oak table",500,eBay
+# New categories and price variations
+bookshelf,Good,"Tall bookshelf",95,Facebook
+bookshelf,Like New,"Ikea bookshelf",130,Amazon
+cupboard,Fair,"Metal cupboard",85,Craigslist
+wardrobe,Good,"3-door wardrobe",240,OfferUp
+cabinet,Good,"Kitchen cabinet set",320,Facebook
+dresser,Like New,"6-drawer dresser",210,eBay
+tv stand,Good,"TV stand with shelves",140,Amazon
+lamp,New,"LED floor lamp",60,Amazon
+mattress,Good,"Queen memory foam mattress",220,Facebook
+nightstand,Good,"Pair of nightstands",130,OfferUp
+rug,Like New,"Large area rug",180,eBay
+recliner,Good,"Leather recliner",270,Facebook
+stool,New,"Bar stool",45,Amazon
+bench,Good,"Entryway bench",90,Craigslist
+sofa bed,Good,"Futon sofa bed",190,OfferUp
+coffee table,Good,"Glass coffee table",130,Facebook
+dining table,Good,"Extendable dining table",380,eBay
+mirror,Like New,"Wall mirror",70,Amazon
+shoe rack,New,"Wooden shoe rack",55,Amazon
+bed,Good,"Platform bed frame",260,Facebook
+wardrobe,Like New,"Sliding door wardrobe",320,eBay
+cupboard,Good,"Wooden cupboard",150,Facebook
+bookshelf,Fair,"Small bookshelf",50,Craigslist
+desk,Like New,"Standing desk",300,Amazon
